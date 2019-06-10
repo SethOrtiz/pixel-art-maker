@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  height: 100vh;
+  width: 100vw;
+}
+
+.back-img {
+  height: 100vh;
+  width: 100vw;
+}
+.back-img::after {
+  content: "";
+  background: url(./blue_background.jpg);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  box-shadow: 0vw 0vw 5vw black inset;
+}
+
+.pixel {
+  height: 2.3vh;
+  width: 2.3vh;
+  border: 1px solid rgb(228, 228, 228);
+  background: white;
+  float: left;
+  border-radius: 5px;
+}
+
+.paint {
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  float: left;
+  margin-left: 3%;
+  box-shadow: 1px 0px 10px rgb(54, 54, 54) inset;
+  margin-top: 0.75%;
+  margin-bottom: 0.75%;
+}
+.paint:hover {
+  background-color: lightcyan;
+}
+
+#main {
+  background: rgb(228, 228, 228);
+  height: 85%;
+  width: 95%;
+  padding: 20px;
+  margin-top: 3%;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+#pixel-wrapper {
+  background: rgb(228, 228, 228);
+  height: 82%;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 2%;
+  margin-left: 0.8%;
+}
+
+#pallet {
+  background: rgb(228, 228, 228);
+  height: 13%;
+  width: 100%;
+}
+
+#selection {
+  background: rgb(228, 228, 228);
+  height: 100%;
+  width: 70%;
+  overflow-y: scroll;
+  margin-top: 1%;
+  margin-left: 2%;
+}
+
+#current-color {
+  background: rgb(228, 228, 228);
+  height: 99%;
+  width: 28%;
+  margin-top: 1%;
+  overflow-x: scroll;
+}
+
+#box {
+  height: 4vh;
+  width: 80%;
+  box-shadow: 0px 0px 15px rgb(54,54,54) inset;
+  border-radius: 25px;
+}
+
+#color-name {
+  margin-top: 0%;
+  margin-bottom: 2%;
+  width: 80%;
+  font-size: 2vw;
+  font-family: "Franklin Gothic Medium";
+  color: black;
+}
