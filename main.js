@@ -1,11 +1,11 @@
 const div = document.querySelector("div");
 const wrapper = document.querySelector("#pixel-wrapper");
-const col = wrapper.querySelectorAll("div.wrapper-col");
+const col = document.querySelector("#wrapper-col");
 const selection = document.querySelector("#selection");
 const pixels = document.querySelectorAll(".pixel");
 const paint = selection.querySelectorAll(".paint");
 const colorName = document.querySelector("#color-name");
-const colorBox = document.querySelector("#box");
+const currentColorDisplay = document.querySelector("#current-color-display");
 let painting = false;
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -26,19 +26,28 @@ document.addEventListener("DOMContentLoaded", function() {
       let target = e.target;
       let brushColor = `${target.id}`;
       if (brushColor !== "selection") {
-        colorBox.style.background = brushColor;
+        currentColorDisplay.style.background = brushColor;
         colorName.innerHTML =
           brushColor.charAt(0).toUpperCase() +
           brushColor.substring(1).replace(/([A-Z])/g, " $1");
       }
       wrapper.addEventListener("mouseover", e => {
         let target = e.target;
-        if (!painting) {
-          brushColor = "target.style.backgroundColor";
-        } else if (painting) {
-          brushColor = colorBox.style.background;
+        if (target !== wrapper) {
+          if (!painting) {
+            brushColor = "target.style.backgroundColor";
+          } else if (painting) {
+            brushColor = currentColorDisplay.style.background;
+          }
+          target.style.background = brushColor;
         }
+      });
+      wrapper.addEventListener("click", e => {
+        let target = e.target;
+        if (target !== wrapper) {
+        brushColor = currentColorDisplay.style.background;
         target.style.background = brushColor;
+        }
       });
     }
   });
